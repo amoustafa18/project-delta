@@ -19,4 +19,12 @@ public class Player extends Actor {
     public void act(float delta) {
         super.act(delta);
     }
+
+    public void incrementScore(int incr) {
+        score += incr;
+    }
+
+    public int getScore() {
+        return score;
+    }
 }
