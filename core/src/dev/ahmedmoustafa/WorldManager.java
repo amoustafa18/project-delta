@@ -1,15 +1,18 @@
 package dev.ahmedmoustafa;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 
 /** A class that acts as an interface between the game world and the rest of the application. */
 public class WorldManager {
     private World world;
+    private Array<Entity> obstacles; //all live obstacles in the world, sorted by x-pos ascending
     private float timeSinceLastPhysicsStep; //in seconds
 
     private final static int VELOCITY_ITERATIONS = 6;
@@ -20,6 +23,7 @@ public class WorldManager {
     public WorldManager() {
         world = new World(new Vector2(0, GRAVITY), true);
         world.setContactListener(new WorldContactListener());
+        obstacles = new Array<>();
     }
 
     public void update(float delta) {

@@ -5,12 +5,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import dev.ahmedmoustafa.ScreenManager;
+import dev.ahmedmoustafa.WorldManager;
 
 public class GameScreen implements Screen {
     private ScreenManager screenManager;
+    private WorldManager worldManager;
 
     public GameScreen(ScreenManager screenManager) {
         this.screenManager = screenManager;
+        worldManager = new WorldManager();
     }
 
     @Override
@@ -21,6 +24,7 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl.glClear( GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+        worldManager.update(delta);
     }
 
     @Override
