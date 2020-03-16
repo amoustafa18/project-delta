@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.Array;
 public class WorldManager {
     private World world;
     private Array<Entity> obstacles; //all live obstacles in the world, sorted by x-pos ascending
+    private Array<Scene> scenes; //all live scenes in the world, sorted by x-pos ascending
     private float timeSinceLastPhysicsStep; //in seconds
 
     private final static int VELOCITY_ITERATIONS = 6;

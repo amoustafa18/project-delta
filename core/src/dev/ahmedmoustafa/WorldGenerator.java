@@ -10,10 +10,11 @@ import java.util.Random;
 import dev.ahmedmoustafa.ecs.CmpMap;
 import dev.ahmedmoustafa.ecs.ObstacleCmp;
 
-/** A class that handles the generation of background scenes and world obstacles. */
+/** A class that handles the generation of terrain, background scenes and world obstacles. */
 public class WorldGenerator {
     private Random random;
-    private Entity lastObstacle;
+    private Entity lastObstacle; //the last generated obstacle
+    private Scene lastScene; //the last generated scene
     private int obstacleCounter;
 
     public WorldGenerator(){
@@ -44,6 +45,15 @@ public class WorldGenerator {
         //TODO increase obstacleCounter by the amount of obstacles in the chain
         //TODO set id of each Entity in ObstacleCmp to be obstacleCounter
         //TODO if lastObstacle is null, ignore it and only use minimumX
+        return null;
+    }
+
+    /**
+     * Generates an environment Scene from the Scene pool. The generated scene will not be identical to
+     * the one generated from the last time this method was called.
+     * @return Newly generated Scene.
+     */
+    public Scene generateScene() {
         return null;
     }
 
